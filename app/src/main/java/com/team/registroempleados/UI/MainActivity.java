@@ -26,7 +26,15 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText txtCargo;
     private FloatingActionButton btnAdd;
     private BottomAppBar appbar;
+    private Empleado empleado = null;
     private boolean tipo= true;
+
+
+    private void getElemento(){
+        Conection con = new Conection();
+        empleado = con.getCambio();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +48,17 @@ public class MainActivity extends AppCompatActivity {
         txtApellido = (TextInputEditText) findViewById(R.id.txtApellido);
         txtCargo = (TextInputEditText) findViewById(R.id.txtCargo);
         appbar = (BottomAppBar) findViewById(R.id.bottomAppBar);
+
+        getElemento();
+        if (empleado !=null){
+            txtRFC.setText(empleado.getRFC());
+            txtNombre.setText(empleado.getNombre());
+            txtApellido.setText(empleado.getApellido());
+            txtCargo.setText(empleado.getCargo());
+            empleado = null;
+            tipo = false;
+            System.gc();
+        }
 
         btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
 
@@ -72,9 +91,18 @@ public class MainActivity extends AppCompatActivity {
 
 
                         /*Evento para editar*/
+                        Conection cnx = new Conection();
+                        cnx.inicializar(MainActivity.this);
+                        cnx.editar(new Empleado(
+                                txtRFC.getText().toString().toUpperCase(),
+                                txtNombre.getText().toString().toUpperCase(),
+                                txtApellido.getText().toString().toUpperCase(),
+                                txtCargo.getText().toString().toUpperCase()
+                        ));
 
-
-
+                        Toast.makeText(MainActivity.this, "Actualizado correctamente", Toast.LENGTH_SHORT).show();
+                        tipo=true;
+                        limpiarCajas();
                     }
 
                 }else{
@@ -92,37 +120,7 @@ public class MainActivity extends AppCompatActivity {
         appbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.menuEdit:
-                        if (tipo){
-                            item.setIcon(R.drawable.ic_edit_selected);
-                            tipo = false;
-                        }else{
-                            item.setIcon(R.drawable.ic_edit);
-                            tipo=true;
-                        }
-
-
-                        Toast.makeText(MainActivity.this,
-                                "Editar",
-                                Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.menuDelete:
-
-                        if (tipo){
-                            item.setIcon(R.drawable.ic_delete_selected);
-                            tipo = false;
-                        }else{
-                            item.setIcon(R.drawable.ic_delete);
-                            tipo=true;
-                        }
-
-
-                        Toast.makeText(MainActivity.this,
-                                "Eliminar",
-                                Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.menuList:
+                if (item.getItemId()== R.id.menuList){
 
                         Intent intent = new Intent(MainActivity.this,Mostrar_Elementos.class);
                         startActivity(intent);
@@ -130,12 +128,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,
                                 "listar",
                                 Toast.LENGTH_SHORT).show();
-                        break;
-                    default:
-                        Toast.makeText(MainActivity.this,
-                                "Nada",
-                                Toast.LENGTH_SHORT).show();
-                        break;
                 }
                 return true;
             }

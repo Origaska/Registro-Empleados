@@ -24,7 +24,7 @@ public class Conection {
     FirebaseDatabase f;
     DatabaseReference dbref;
 
-    public  void inicializar(Context c){
+    public void inicializar(Context c){
         FirebaseApp.initializeApp(c);
         f = FirebaseDatabase.getInstance().getInstance(
                 "https://registro-empleados-69f1e-default-rtdb.firebaseio.com/");
@@ -62,20 +62,24 @@ public class Conection {
 
     }
 
-    public void editar(){
-
-
+    public void editar(Empleado empleadoSeleccionado){
+    dbref.child("Empleado").child(empleadoSeleccionado.getRFC()).setValue(empleadoSeleccionado);
+    eliminar(cambio);
     }
-    public void eliminar(Empleado eliminado,Context cntx){
+    public void eliminar(Empleado eliminado){
         Empleado e = new Empleado();
         e.setRFC(eliminado.getRFC());
         dbref.child("Empleado").child(e.getRFC()).removeValue();
-        Toast.makeText(cntx, "Eliminado correctamente", Toast.LENGTH_SHORT).show();
+    }
+    public static Empleado cambio;
 
+    public void setCambio(Empleado cambio){
+        this.cambio = cambio;
     }
 
-
-
+    public static Empleado getCambio() {
+        return cambio;
+    }
 }
 
 
