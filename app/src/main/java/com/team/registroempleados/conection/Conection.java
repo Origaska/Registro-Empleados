@@ -3,6 +3,7 @@ package com.team.registroempleados.conection;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -63,8 +64,13 @@ public class Conection {
 
     public void editar(){
 
+
     }
-    public void eliminar(){
+    public void eliminar(Empleado eliminado,Context cntx){
+        Empleado e = new Empleado();
+        e.setRFC(eliminado.getRFC());
+        dbref.child("Empleado").child(e.getRFC()).removeValue();
+        Toast.makeText(cntx, "Eliminado correctamente", Toast.LENGTH_SHORT).show();
 
     }
 
