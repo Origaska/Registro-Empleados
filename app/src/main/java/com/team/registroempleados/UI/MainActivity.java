@@ -108,6 +108,16 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.menuDelete:
+
+                        if (tipo){
+                            item.setIcon(R.drawable.ic_delete_selected);
+                            tipo = false;
+                        }else{
+                            item.setIcon(R.drawable.ic_delete);
+                            tipo=true;
+                        }
+
+
                         Toast.makeText(MainActivity.this,
                                 "Eliminar",
                                 Toast.LENGTH_SHORT).show();
