@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menuList"
+        android:title="@string/listar"
+        android:icon="@drawable/ic_show"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/menuEdit"
+        android:title="@string/editar"
+        android:icon="@drawable/ic_edit"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/menuDelete"
+    android:title="@string/eliminar"
+    android:icon="@drawable/ic_delete"
+    app:showAsAction="always"/>
+
+
+</menu>

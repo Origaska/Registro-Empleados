@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "204056881827",
+    "project_id": "registro-empleados-69f1e",
+    "storage_bucket": "registro-empleados-69f1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204056881827:android:194c9f0fcdd58986b46d16",
+        "android_client_info": {
+          "package_name": "com.team.registroempleados"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204056881827-r57ncnppt6utjoa93jfs6euhmq0bt5bf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB90EUsWApJizTv00Tw2qEwoknj8ruNI2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204056881827-r57ncnppt6utjoa93jfs6euhmq0bt5bf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

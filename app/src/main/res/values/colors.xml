@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFFFFFFF</color>
+    <color name="purple_500">#FFFFFFFF</color>
+    <color name="purple_700">#FFFFFFFF</color>
+    <color name="teal_200">#FFFFFFFF</color>
+    <color name="teal_700">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="Rosa_900">#880E4F</color>
+    <color name="Morado">#720d5d</color>
+    <color name="Morado_Menu">#5d1049</color>
+    <color name="Morado_Elementos">#7e236b</color>
+    <color name="Appbar">#9A9A9A</color>
+    <color name="colorButtons">#FF4081</color>
+
+
+
+</resources>
